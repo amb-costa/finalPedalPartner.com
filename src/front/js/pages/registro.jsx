@@ -17,7 +17,7 @@ export const Registro = () => {
       {/* form container 4 whole body */}
       <div className="row m-0 p-2">
       <form
-        className="col-12 my-1 px-5 position-relative"
+        className="col-12 px-5 position-relative"
         onSubmit={(e) =>
           store.roles_id == 2
             ? actions.handleSubmitRegister(e, navigate)

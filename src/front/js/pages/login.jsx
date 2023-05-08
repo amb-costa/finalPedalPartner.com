@@ -35,6 +35,7 @@ export const Login = () => {
                 aria-describedby="inputGroup"
                 value={store.email}
                 onChange={actions.handleChange}
+                required
               />
             </div>
             <div className="col-8 form-group my-3 d-flex">
@@ -50,6 +51,7 @@ export const Login = () => {
                 aria-describedby="inputGroup"
                 value={store.password}
                 onChange={actions.handleChange}
+                required
               />
             </div>
           </div>

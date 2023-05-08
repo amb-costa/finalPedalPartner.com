@@ -116,7 +116,7 @@ export const Contacto = () => {
 
         {/*row 4 rest of form : title, mail, textarea, files*/}
         <div className="row mt-3 px-5">
-          <div className="row d-flex mb-3 fs-5">
+          <div className="row d-flex mb-2 fs-5">
             <div className="col-7 form-floating d-flex">
               <input
                 type="text"
@@ -183,7 +183,8 @@ export const Contacto = () => {
               />
             </div>
           </div>
-          <div className="row mt-3">
+        </div>
+        <div className="row mt-3">
             <button
               type="submit"
               className="col-sm-1 mx-auto btn btn-danger fs-5 px-2"
@@ -191,7 +192,6 @@ export const Contacto = () => {
               Enviar
             </button>
           </div>
-        </div>
       </form>
     </div>
   );
