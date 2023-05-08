@@ -1,22 +1,24 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/AppContext";
+import { useNavigate } from "react-router-dom";
 
 export const Contacto = () => {
   const { store, actions } = useContext(Context);
-  const [isChecked, setIsChecked] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div
-      className="container-fluid position-relative text-center p-2"
+      className="row container-fluid position-relative text-center p-3"
       id="mainView"
     >
-      <h1 className="text-center my-1">Contacto</h1>
+      <h1 className="col-12">Contacto</h1>
       <hr className="col-12 hr my-2" />
 
       {/* form container 4 whole body */}
       <form
         className="col-12 mt-1 px-5 position-relative"
-        onSubmit={actions.handleSubmitContacto}
+        onSubmit={(e) => actions.handleSubmitContacto(e, navigate)}
       >
         {/* row 4 first filter: service type + event public (optional) */}
         <div className="row mx-5 px-5">
@@ -28,7 +30,7 @@ export const Contacto = () => {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="servicios"
+                  name="tipos_id"
                   id="flexRadioDefault1"
                   value={1}
                   onChange={actions.handleChange}
@@ -41,8 +43,9 @@ export const Contacto = () => {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="servicios"
+                  name="tipos_id"
                   id="flexRadioDefault2"
+                  //checked={isChecked}
                   value={2}
                   onChange={actions.handleChange}
                 />
@@ -57,7 +60,7 @@ export const Contacto = () => {
                 <input
                   className="form-check-input"
                   type="radio"
-                  name="servicios"
+                  name="tipos_id"
                   id="flexRadioDefault3"
                   value={3}
                   onChange={actions.handleChange}
@@ -72,47 +75,60 @@ export const Contacto = () => {
             </div>
           </div>
           {/* half row : conditional formcheck for event type */}
-          {store.servicios == 2 ? (
-            <div className="col-6 text-start">
-              <h3>Destinatario Evento</h3>
-              <div className="container-fluid">
-                <div className="form-check ms-2 my-1 fs-5">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    name="destino"
-                    id="recipientCiclista"
-                    value={3}
-                    onChange={actions.handleChange}
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="#recipientCiclista"
-                  >
-                    Ciclista
-                  </label>
-                </div>
-                <div className="form-check ms-2 my-1 fs-5">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    name="destino"
-                    id="recipientMecanico"
-                    value={2}
-                    onChange={actions.handleChange}
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="#recipientMecanico"
-                  >
-                    Mecánico
-                  </label>
-                </div>
+          <div className="col-6 text-start">
+            <h3>Destinatario Evento</h3>
+            <div className="container-fluid">
+              <div className="form-check ms-2 my-1 fs-5">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="roles_id"
+                  id="flexRadioDefault3"
+                  value={2}
+                  onChange={actions.handleChange}
+                />
+                <label
+                  className="form-check-label fs-5"
+                  htmlFor="flexRadioDefault3"
+                >
+                  Ciclista
+                </label>
+              </div>
+              <div className="form-check ms-2 my-1 fs-5">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="roles_id"
+                  id="flexRadioDefault3"
+                  value={3}
+                  onChange={actions.handleChange}
+                />
+                <label
+                  className="form-check-label fs-5"
+                  htmlFor="flexRadioDefault3"
+                >
+                  Mecánico
+                </label>
+              </div>
+              <div className="form-check ms-2 my-1 fs-5">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="roles_id"
+                  id="flexRadioDefault4"
+                  value={4}
+                  onChange={actions.handleChange}
+                />
+                <label
+                  className="form-check-label fs-5"
+                  htmlFor="flexRadioDefault4"
+                >
+                  Ambos
+                </label>
               </div>
             </div>
-          ) : null}
           </div>
-          
+        </div>
 
         {/*row 4 rest of form : title, mail, textarea, files*/}
         <div className="row mt-3 px-5">
