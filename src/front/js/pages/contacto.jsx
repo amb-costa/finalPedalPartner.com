@@ -174,7 +174,7 @@ export const Contacto = () => {
                   aria-label="With textarea"
                   value={store.descripcion}
                   onChange={actions.handleChange}
-                  style={{ height: 200 }}
+                  style={{ height: 150 }}
                 />
                 <label htmlFor="#inputTextArea" className="fs-5 pt-2 mx-1">
                   Descripción
@@ -194,7 +194,7 @@ export const Contacto = () => {
                 name="data"
                 id="customFile"
                 value={store.data}
-                onChange={actions.handleChange} //aqui se debe cambiar la forma de capturar el file
+                onChange={actions.handleChange}
                 //habria que probar si 1° esto resulta
               />
             </div>
